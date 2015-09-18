@@ -72,9 +72,16 @@
     [self setProgress];
 }
 
-- (void)setProgress:(float)progress animated:(BOOL)animated
-{
-    
+- (void)setProgress:(float)progress animated:(BOOL)animated {
+    [UIView animateWithDuration:15.3f animations:^{
+//        _progress = progress;
+//        _advImage.alpha = 0.f;
+    } completion:^(BOOL finished) {
+//        [_advImage removeFromSuperview];
+        _progress = progress;
+        
+        //[self setProgress];
+    }];
 }
 
 

@@ -23,5 +23,6 @@
 #import "Constants.h"
 #import "RAYDateFormatterUitl.h"
 #import "NetworkSingleton.h"
+#import "RAYEncryptUtil.h"
 
 #endif

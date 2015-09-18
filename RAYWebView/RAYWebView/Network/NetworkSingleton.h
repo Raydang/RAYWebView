@@ -16,6 +16,7 @@ typedef void (^FailureBlock)(NSString *error);
 +(NetworkSingleton *)sharedManager;
 -(AFHTTPRequestOperationManager *)baseHtppRequest;
 
+//应用初始化
 - (void)postAppInitial:(NSDictionary *)userInfo
                    url:(NSString *)url
           successBlock:(SuccessBlock)successBlock

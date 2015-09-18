@@ -18,6 +18,8 @@
 		8E3BFDEA1BABC1F100BD99BC /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFDDF1BABC1F100BD99BC /* AFURLRequestSerialization.m */; };
 		8E3BFDEB1BABC1F100BD99BC /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFDE11BABC1F100BD99BC /* AFURLResponseSerialization.m */; };
 		8E3BFDEC1BABC1F100BD99BC /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFDE31BABC1F100BD99BC /* AFURLSessionManager.m */; };
+		8E3BFDF21BAC0B9F00BD99BC /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFDF11BAC0B9F00BD99BC /* NSData+Base64.m */; };
+		8E3BFDF51BAC0CFD00BD99BC /* RAYEncryptUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BFDF41BAC0CFD00BD99BC /* RAYEncryptUtil.m */; };
 		8ED6A19B1BA9122600F01F9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6A19A1BA9122600F01F9B /* main.m */; };
 		8ED6A19E1BA9122600F01F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6A19D1BA9122600F01F9B /* AppDelegate.m */; };
 		8ED6A1A11BA9122600F01F9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED6A1A01BA9122600F01F9B /* ViewController.m */; };
@@ -75,6 +77,10 @@
 		8E3BFDE11BABC1F100BD99BC /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		8E3BFDE21BABC1F100BD99BC /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		8E3BFDE31BABC1F100BD99BC /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		8E3BFDF01BAC0B9F00BD99BC /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		8E3BFDF11BAC0B9F00BD99BC /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		8E3BFDF31BAC0CFD00BD99BC /* RAYEncryptUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAYEncryptUtil.h; sourceTree = "<group>"; };
+		8E3BFDF41BAC0CFD00BD99BC /* RAYEncryptUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAYEncryptUtil.m; sourceTree = "<group>"; };
 		8ED6A1951BA9122600F01F9B /* RAYWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAYWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED6A1991BA9122600F01F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ED6A19A1BA9122600F01F9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -179,6 +185,15 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
+		8E3BFDEF1BAC0B8000BD99BC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				8E3BFDF01BAC0B9F00BD99BC /* NSData+Base64.h */,
+				8E3BFDF11BAC0B9F00BD99BC /* NSData+Base64.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		8ED6A18C1BA9122600F01F9B = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +215,7 @@
 		8ED6A1971BA9122600F01F9B /* RAYWebView */ = {
 			isa = PBXGroup;
 			children = (
+				8E3BFDEF1BAC0B8000BD99BC /* Category */,
 				8E3BFDCC1BABBFD400BD99BC /* Network */,
 				8ED6A1EC1BA96C1A00F01F9B /* Utils */,
 				8ED6A1E51BA9515300F01F9B /* UIView+Frame.h */,
@@ -290,6 +306,8 @@
 				8ED6A1F51BA9763800F01F9B /* RAYDateFormatterUitl.m */,
 				8E07570C1BAAB1930026EB3B /* RAYCircleProgressView.h */,
 				8E07570D1BAAB1930026EB3B /* RAYCircleProgressView.m */,
+				8E3BFDF31BAC0CFD00BD99BC /* RAYEncryptUtil.h */,
+				8E3BFDF41BAC0CFD00BD99BC /* RAYEncryptUtil.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -400,6 +418,7 @@
 				8ED6A1F01BA96C7C00F01F9B /* RAYArrayUtil.m in Sources */,
 				8E3BFDE91BABC1F100BD99BC /* AFURLConnectionOperation.m in Sources */,
 				8E3BFDE81BABC1F100BD99BC /* AFSecurityPolicy.m in Sources */,
+				8E3BFDF51BAC0CFD00BD99BC /* RAYEncryptUtil.m in Sources */,
 				8ED6A1DA1BA93BEA00F01F9B /* MASCompositeConstraint.m in Sources */,
 				8E3BFDE61BABC1F100BD99BC /* AFHTTPSessionManager.m in Sources */,
 				8ED6A1EA1BA95D6300F01F9B /* RAYViewController.m in Sources */,
@@ -421,6 +440,7 @@
 				8ED6A1F61BA9763800F01F9B /* RAYDateFormatterUitl.m in Sources */,
 				8ED6A1DB1BA93BEA00F01F9B /* MASConstraint.m in Sources */,
 				8E3BFDCF1BABC04200BD99BC /* NetworkSingleton.m in Sources */,
+				8E3BFDF21BAC0B9F00BD99BC /* NSData+Base64.m in Sources */,
 				8ED6A1DC1BA93BEA00F01F9B /* MASConstraintMaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

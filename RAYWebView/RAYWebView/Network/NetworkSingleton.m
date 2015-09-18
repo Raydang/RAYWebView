@@ -9,7 +9,8 @@
 #import "NetworkSingleton.h"
 
 //请求超时
-#define TIMEOUT 30
+#define TIMEOUT         30
+#define ALGORITHM_KEY @"F3ABA967CA5B2271CF40292E3AD90D2D"
 
 @implementation NetworkSingleton
 
@@ -27,7 +28,6 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];//所有的网络请求,均有manager发起
     [manager.requestSerializer setTimeoutInterval:TIMEOUT];
     //header 设置
-    
 //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"text/html", @"application/json", nil];
 
     //申明请求的数据是json类型
@@ -48,7 +48,6 @@
     AFHTTPRequestOperationManager *manager = [self baseHtppRequest];
     NSString *urlString = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableDictionary *dictionaryData = [[NSMutableDictionary alloc] initWithDictionary:userInfo];
-    
 //    排序
     NSArray *keys = [userInfo allKeys];
     keys = [keys sortedArrayUsingSelector:@selector(compare:)];
@@ -59,12 +58,13 @@
     }
     str = [str substringToIndex:str.length-1];
     //生成MD5签名，并加到dic
-    NSString *bStr = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                           (CFStringRef)@"KUkcwFbkw2nZMs8cOBICYrQJ6M8=",
-                                                           NULL,
-                                                           CFSTR(":/?#[]@!$&’()*+,;="),
-                                                           kCFStringEncodingUTF8));
-    [dictionaryData setObject:@"KUkcwFbkw2nZMs8cOBICYrQJ6M8=" forKey:@"sign"];
+//    NSString *bStr = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+//                                                           (CFStringRef)@"KUkcwFbkw2nZMs8cOBICYrQJ6M8=",
+//                                                           NULL,
+//                                                           CFSTR(":/?#[]@!$&’()*+,;="),
+//                                                           kCFStringEncodingUTF8));
+    [dictionaryData setObject:[RAYEncryptUtil hmacSha1:ALGORITHM_KEY  text:str]
+                       forKey:@"sign"];
     
     [manager POST:urlString
        parameters:dictionaryData
