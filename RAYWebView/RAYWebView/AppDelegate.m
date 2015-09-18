@@ -17,6 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+    }
+    else{
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {NSLog(@"1");
+    }
+//        WelcomeViewController *welcomeVC = [[WelcomeViewController alloc] init];
+//        [self.window setRootViewController:welcomeVC];
+//    }else{
+//        MainViewController *mainVC = [[MainViewController alloc] init];
+//        [self.window setRootViewController:mainVC];
+//    }
     return YES;
 }
 
@@ -41,5 +57,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification*)notification{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iWeibo" message:notification.alertBody delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
+    // 图标上的数字减1
+    application.applicationIconBadgeNumber -= 1;
+}
+
 
 @end

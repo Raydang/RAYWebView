@@ -149,6 +149,17 @@ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:msg delega
 //    });
 //    return sharedInstance;
 //}
+
+//+ (NetworkManager *)sharedInstance
+//{
+//    static dispatch_once_t  onceToken;
+//    static NetworkManager * sSharedInstance;
+//
+//    dispatch_once(&onceToken;, ^{
+//        sSharedInstance = [[NetworkManager alloc] init];
+//    });
+//    return sSharedInstance;
+//}
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
 \
 static classname *shared##classname = nil; \
@@ -184,5 +195,7 @@ return nil; \
 { \
 return self; \
 }
+
+
 
 #endif

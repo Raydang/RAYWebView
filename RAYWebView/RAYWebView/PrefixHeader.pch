@@ -13,10 +13,15 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+#import <Security/Security.h>
+#import <Security/SecImportExport.h>
 #import "Masonry.h"
+#import "AFNetworking.h"
 
 #import "Macros.h"
 #import "Constants.h"
 #import "RAYDateFormatterUitl.h"
+#import "NetworkSingleton.h"
 
 #endif
