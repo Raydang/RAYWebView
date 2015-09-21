@@ -39,7 +39,15 @@
     //传入的参数
     return manager;
 }
-
+/**
+ *  初始化Person对象
+ *
+ *  @param name   名称
+ *  @param age    年龄
+ *  @param height 身高
+ *
+ *  @return Person对象
+ */
 - (void)postAppInitial:(NSDictionary *)userInfo
                    url:(NSString *)url
           successBlock:(SuccessBlock)successBlock
