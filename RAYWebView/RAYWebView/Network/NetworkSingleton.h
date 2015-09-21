@@ -13,16 +13,19 @@ typedef void (^FailureBlock)(NSString *error);
 
 @interface NetworkSingleton : NSObject
 
-+(NetworkSingleton *)sharedManager;
--(AFHTTPRequestOperationManager *)baseHtppRequest;
+/** 单列对象*/
++ (NetworkSingleton *)sharedManager;
 
-//应用初始化
+///http
+- (AFHTTPRequestOperationManager *)baseHtppRequest;
+
 /**
- *  初始化Person对象
+ *  初始化 AppInitial
  *
- *  @param name   名称
- *  @param age    年龄
- *  @param height 身高
+ *  @param userInfo      字段
+ *  @param url           url
+ *  @param successBlock  成功
+ *  @param failureBlock  失败
  *
  *  @return Person对象
  */

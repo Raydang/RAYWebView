@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "UIImageView+WebCache.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) UIView *lunchView;
 @end
 
 @implementation AppDelegate
@@ -25,8 +26,20 @@
     else{
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
     }
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {NSLog(@"1");
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"])     {
+
+NSLog(@"1");
     }
+    
+    self.lunchView = [[NSBundle mainBundle ]loadNibNamed:@"LaunchScreen" owner:nil options:nil][0];
+    self.lunchView.frame = CGRectMake(0, 0, self.window.screen.bounds.size.width, self.window.screen.bounds.size.height);
+    [self.window addSubview:self.lunchView];
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 50, 320, 300)];
+    NSString *str = @"http://www.jerehedu.com/images/temp/logo.gif";
+    [imageV sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"default1.jpg"]];
+    [self.lunchView addSubview:imageV];
+    [self.window bringSubviewToFront:self.lunchView];
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(removeLun) userInfo:nil repeats:NO]; return YES;
 //        WelcomeViewController *welcomeVC = [[WelcomeViewController alloc] init];
 //        [self.window setRootViewController:welcomeVC];
 //    }else{
@@ -35,7 +48,7 @@
 //    }
     return YES;
 }
-
+-(void)removeLun { [self.lunchView removeFromSuperview]; }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -23,7 +23,7 @@
     });
     return sharedNetworkSingleton;
 }
-
+////
 - (AFHTTPRequestOperationManager *)baseHtppRequest {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];//所有的网络请求,均有manager发起
     [manager.requestSerializer setTimeoutInterval:TIMEOUT];
@@ -39,15 +39,7 @@
     //传入的参数
     return manager;
 }
-/**
- *  初始化Person对象
- *
- *  @param name   名称
- *  @param age    年龄
- *  @param height 身高
- *
- *  @return Person对象
- */
+
 - (void)postAppInitial:(NSDictionary *)userInfo
                    url:(NSString *)url
           successBlock:(SuccessBlock)successBlock
@@ -79,8 +71,7 @@
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               
                     successBlock(responseObject);
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               
                     NSString *errorStr = [error.userInfo objectForKey:@"NSLocalizedDescription"];
                     failureBlock(errorStr);

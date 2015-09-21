@@ -13,13 +13,14 @@
 static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
 
 // define display date format.
-static NSString * const RAY_CONSTANT_DEFAULT_DATETIME_FORMAT_PATTERN        = @"yyyy-MM-dd HH:mm:ss";
-static NSString * const RAY_CONSTANT_DEFAULT_DATE_FORMAT_PATTERN            = @"yyyy-MM-dd";
-static NSString * const RAY_CONSTANT_DEFAULT_IDS_FORMAT_PATTERN             = @"yyyyMMddHHmmss";
-static NSString * const RAY_CONSTANT_DEFAULT_UNIQUE_IDS_FORMAT_PATTERN      = @"yyyyMMdd";
-static NSString * const RAY_CONSTANT_DEFAULT_DATE_FORMAT_PATTERN_1          = @"MM/dd/yyyy";
-static NSString * const RAY_CONSTANT_DEFAULT_UNIQUE_IDS_FORMAT_PATTERN_1    = @"yyMMdd";
-static NSString * const RAY_CONSTANT_DEFAULT_DATETIME_FORMAT_PATTERN_1      = @"yyyy-MM-dd HH:mm:ss Z";
+static NSString * const RAY_CONSTANT_DEFAULT_DATETIME_FORMAT_PATTERN      = @"yyyy-MM-dd HH:mm:ss";
+static NSString * const RAY_CONSTANT_DEFAULT_DATE_FORMAT_PATTERN          = @"yyyy-MM-dd";
+static NSString * const RAY_CONSTANT_DEFAULT_IDS_FORMAT_PATTERN           = @"yyyyMMddHHmmss";
+static NSString * const RAY_CONSTANT_DEFAULT_UNIQUE_IDS_FORMAT_PATTERN    = @"yyyyMMdd";
+static NSString * const RAY_CONSTANT_DEFAULT_DATE_FORMAT_PATTERN_1        = @"MM/dd/yyyy";
+static NSString * const RAY_CONSTANT_DEFAULT_UNIQUE_IDS_FORMAT_PATTERN_1  = @"yyMMdd";
+static NSString * const RAY_CONSTANT_DEFAULT_DATETIME_FORMAT_PATTERN_1    = @"yyyy-MM-dd HH:mm:ss Z";
+static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 #endif
 //typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
