@@ -23,10 +23,10 @@
 - (void)viewDidLoad { // addSubview
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    RAYCircleView *circle = [[RAYCircleView alloc]initWithFrame:CGRectMake(40, 40, 150, 150)];
-    [circle setBackgroundColorWithView:[UIColor orangeColor]];
-    [circle setTitleWithLabel:@""];
-    [self.view addSubview:circle];
+//    RAYCircleView *circle = [[RAYCircleView alloc]initWithFrame:CGRectMake(20, 40, 100, 100)];
+//    [circle setBackgroundColorWithView:[UIColor orangeColor]];
+//    [circle setTitleWithLabel:@""];
+//    [self.view addSubview:circle];
     
 //    [sv mas_makeConstraints:^(MASConstraintMaker *make){
 //        make.center.equalTo(self.view);
@@ -35,22 +35,37 @@
     
 //    NSString * dateString = [RAYDateFormatterUitl dateToStringFormat:[NSDate date] partten:@"yyyyMMddHHmmss"];
 //    NSLog(@"%@",RAY_CONSTANT_DEFAULT_DATETIME_FORMAT_PATTERN);
-    
+    UIView *vs = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
+    [self.view addSubview:vs];
 
     
-    self.progressView = [[RAYCircleProgressView alloc] initWithFrame:CGRectMake(40, 150, 150, 150)];
-    [self.view addSubview:self.progressView];
+    self.progressView = [[RAYCircleProgressView alloc] initWithFrame:CGRectMake(50, 0, 100, 100)];
+    [vs addSubview:self.progressView];
     self.progressView.trackColor = [UIColor blackColor];
     self.progressView.progressColor = [UIColor orangeColor];
     self.progressView.progress = .1;
     self.progressView.progressWidth = 10;
+    
 //    [self.progressView setProgress:0.9 animated:YES];
 //    [self.progressView mas_makeConstraints:^(MASConstraintMaker *make){
 //        make.center.equalTo(self.view);
 //        make.size.mas_equalTo(CGSizeMake(130, 130));
 //    }];
     
- [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(progressChange) userInfo:nil repeats:YES];
+    [[NSRunLoop  currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    tableView.tableHeaderView = vs;
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.tintColor = [UIColor colorWithRed:40.0/255.0 green:120.0/255.0 blue:160.0/255.0 alpha:100];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];
+    [refresh addTarget:self action:@selector(refreshTableView:) forControlEvents:UIControlEventValueChanged];
+    [tableView addSubview:refresh];
+    
+    [self.view addSubview:tableView];
+    
     
     NSString *url =  @"http://www.zhefengcaifu.com/zf-appserver/process";
     NSDictionary *dic = [[NSDictionary alloc]initWithObjectsAndKeys:
@@ -69,11 +84,22 @@
                                             NSLog(@"请求成功");
                                             NSLog(@"%@",responseBody[@"msg_rsp_desc"]);
                                             NSLog(@"%@",responseBody);
-                                        }
-                                        failureBlock:^(NSString *error){
+                                        }failureBlock:^(NSString *error){
                                             NSLog(@"请求失败：%@",error);
                                                 }];
 
+}
+
+- (void)refreshTableView:(id)sender{
+//    _reloadCount++;
+//    // 请求数据
+//    [self requestFromDPAPI];
+//    // 结束刷新
+//    [self.refreshControl endRefreshing];
+    
+    for (UIView *ve in [sender subviews]) {
+        NSLog(@"v-%@",ve);
+    }
 }
 - (void)progressChange {
     
