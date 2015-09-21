@@ -64,6 +64,14 @@
     [refresh addTarget:self action:@selector(refreshTableView:) forControlEvents:UIControlEventValueChanged];
     [tableView addSubview:refresh];
     
+    UIEdgeInsets contentInset = tableView.contentInset;
+    contentInset.top = 0;
+    [tableView setContentInset:contentInset];
+    
+    static NSString *ID = @"cell";
+    [tableView registerClass:[MyCell class] forCellReuseIdentifier:ID];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
+    
     [self.view addSubview:tableView];
     
     
